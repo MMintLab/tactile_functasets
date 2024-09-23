@@ -33,6 +33,35 @@ Bubble and Gelslim datasets are from ["Touch2Touch: Cross-Modal Tactile Generati
 ## Experiments
 
 ## Demos
+### TactFunc Reconstruction with 3 Gradient Steps (Bubble Sensor)
+Meta-learned Initialization  | Reconstruction PSNR = 38.32  |                 Target
+:---------------------------: | :---------------------------: | :---------------------------:
+![](./assets/functa_init.png) | ![](./assets/functa_bubble_recon.png) | ![](./assets/functa_bubble_target.png)
+
+### TactFunc Reconstruction with 3 Gradient Steps (Gelslim Sensor)
+Meta-learned Initialization  | Reconstruction PSNR = 36.83  |                 Target
+:---------------------------: | :---------------------------: | :---------------------------:
+![](./assets/functa_init.png) | ![](./assets/functa_gel_recon.png) | ![](./assets/functa_gel_target.png)
+
+### VAE Reconstruction (Bubble Sensor)
+Reconstruction PSNR = 27.32 | Target
+:---------------------------: | :---------------------------:
+
+
+### VAE Reconstruction (Gelslim Sensor)
+Reconstruction PSNR = 28.71 | Target
+:---------------------------: | :---------------------------:
+
+
+### T3 Reconstruction (Bubble Sensor)
+Reconstruction PSNR = 13.86 | Target
+:---------------------------: | :---------------------------:
+
+
+### T3 Reconstruction (Gelslim Sensor)
+Reconstruction PSNR = 24.83 | Target
+:---------------------------: | :---------------------------:
+
 
 ## Citation
 ```
