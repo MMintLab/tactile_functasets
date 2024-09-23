@@ -27,12 +27,24 @@ Bubble and Gelslim datasets are from ["Touch2Touch: Cross-Modal Tactile Generati
 ### ⛏️ In progress...
 
 ## Setup
+Git clone the project and cd to the project main directory.
+
+Set up a python virtual environment with the required dependencies using conda.
+```
+conda create -n <name> python=3.10
+conda activate <name>
+pip install -r requirements.txt
+
+# To use GPU (NVIDIA, CUDA 12) with jax, install jax with
+pip install -U "jax[cuda12]"
+```
 
 ## Data
 
 ## Experiments
 
 ## Demos
+*Images compared are of the same size, the displayed differences do not represent the actual size.*
 ### TactFunc Reconstruction with 3 Gradient Steps (Bubble Sensor)
 Meta-learned Initialization  | Reconstruction PSNR = 38.32  |                 Target
 :---------------------------: | :---------------------------: | :---------------------------:
