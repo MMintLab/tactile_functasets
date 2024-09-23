@@ -46,22 +46,22 @@ Meta-learned Initialization  | Reconstruction PSNR = 36.83  |                 Ta
 ### VAE Reconstruction (Bubble Sensor)
 Reconstruction PSNR = 27.32 | Target
 :---------------------------: | :---------------------------:
-
+![](./assets/vae_bubble_recon.png) | ![](./assets/vae_bubble_target.png)
 
 ### VAE Reconstruction (Gelslim Sensor)
 Reconstruction PSNR = 28.71 | Target
 :---------------------------: | :---------------------------:
-
+![](./assets/vae_gel_recon.png) | ![](./assets/vae_gel_target.png)
 
 ### T3 Reconstruction (Bubble Sensor)
 Reconstruction PSNR = 13.86 | Target
 :---------------------------: | :---------------------------:
-
+![](./assets/t3_bubble_recon.png) | ![](./assets/t3_bubble_target.png)
 
 ### T3 Reconstruction (Gelslim Sensor)
 Reconstruction PSNR = 24.83 | Target
 :---------------------------: | :---------------------------:
-
+![](./assets/t3_gel_recon.png) | ![](./assets/t3_gel_target.png)
 
 ## Citation
 ```
