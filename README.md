@@ -3,7 +3,7 @@
 [![Python Version][python-image]][python-url]
 [![Package License][package-license-image]][package-license-url]
 
-This repository contains main code for the paper "Tactile Functasets: Neural Implicit Representations of Tactile Datasets" by Sikai Li, Samanta Rodriguez, Yiming Dou, Andrew Owens, Nima Fazeli.
+This repository contains main code for the paper ["Tactile Functasets: Neural Implicit Representations of Tactile Datasets"](https://arxiv.org/abs/2409.14592) by Sikai Li, Samanta Rodriguez, Yiming Dou, Andrew Owens, Nima Fazeli.
 
 ## Overview
 🦾 Tactile functaset (TactFunc) reconstructs the high-dimensional raw tactile dataset by training neural implicit functions. It produces compact representations that capture the underlying structure of the tactile sensory inputs. We demonstrate the efficacy of this representation on the downstream task of in-hand object pose estimation, achieving improved performance over image-based methods while simplifying downstream models.
@@ -46,37 +46,46 @@ pip install -U "jax[cuda12]"
 ## Demos
 *Images compared are of the same size, the displayed differences do not represent the actual size.*
 ### TactFunc Reconstruction with 3 Gradient Steps (Bubble Sensor)
-Meta-learned Initialization  | Reconstruction PSNR = 38.32  |                 Target
-:---------------------------: | :---------------------------: | :---------------------------:
-![](./assets/functa_init.png) | ![](./assets/functa_bubble_recon.png) | ![](./assets/functa_bubble_target.png)
+|  Meta-learned Initialization  |      Reconstruction PSNR = 38.32      |                 Target                 |
+| :---------------------------: | :-----------------------------------: | :------------------------------------: |
+| ![](./assets/functa_init.png) | ![](./assets/functa_bubble_recon.png) | ![](./assets/functa_bubble_target.png) |
 
 ### TactFunc Reconstruction with 3 Gradient Steps (Gelslim Sensor)
-Meta-learned Initialization  | Reconstruction PSNR = 36.83  |                 Target
-:---------------------------: | :---------------------------: | :---------------------------:
-![](./assets/functa_init.png) | ![](./assets/functa_gel_recon.png) | ![](./assets/functa_gel_target.png)
+|  Meta-learned Initialization  |    Reconstruction PSNR = 36.83     |               Target                |
+| :---------------------------: | :--------------------------------: | :---------------------------------: |
+| ![](./assets/functa_init.png) | ![](./assets/functa_gel_recon.png) | ![](./assets/functa_gel_target.png) |
 
 ### VAE Reconstruction (Bubble Sensor)
-Reconstruction PSNR = 27.32 | Target
-:---------------------------: | :---------------------------:
-![](./assets/vae_bubble_recon.png) | ![](./assets/vae_bubble_target.png)
+|    Reconstruction PSNR = 27.32     |               Target                |
+| :--------------------------------: | :---------------------------------: |
+| ![](./assets/vae_bubble_recon.png) | ![](./assets/vae_bubble_target.png) |
 
 ### VAE Reconstruction (Gelslim Sensor)
-Reconstruction PSNR = 28.71 | Target
-:---------------------------: | :---------------------------:
-![](./assets/vae_gel_recon.png) | ![](./assets/vae_gel_target.png)
+|   Reconstruction PSNR = 28.71   |              Target              |
+| :-----------------------------: | :------------------------------: |
+| ![](./assets/vae_gel_recon.png) | ![](./assets/vae_gel_target.png) |
 
 ### T3 Reconstruction (Bubble Sensor)
-Reconstruction PSNR = 13.86 | Target
-:---------------------------: | :---------------------------:
-![](./assets/t3_bubble_recon.png) | ![](./assets/t3_bubble_target.png)
+|    Reconstruction PSNR = 13.86    |               Target               |
+| :-------------------------------: | :--------------------------------: |
+| ![](./assets/t3_bubble_recon.png) | ![](./assets/t3_bubble_target.png) |
 
 ### T3 Reconstruction (Gelslim Sensor)
-Reconstruction PSNR = 24.83 | Target
-:---------------------------: | :---------------------------:
-![](./assets/t3_gel_recon.png) | ![](./assets/t3_gel_target.png)
+|  Reconstruction PSNR = 24.83   |             Target              |
+| :----------------------------: | :-----------------------------: |
+| ![](./assets/t3_gel_recon.png) | ![](./assets/t3_gel_target.png) |
 
 ## Citation
 ```
+@misc{li2024tactilefunctasetsneuralimplicit,
+      title={Tactile Functasets: Neural Implicit Representations of Tactile Datasets}, 
+      author={Sikai Li and Samanta Rodriguez and Yiming Dou and Andrew Owens and Nima Fazeli},
+      year={2024},
+      eprint={2409.14592},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2409.14592}, 
+}
 ```
 
 ## Acknowledgement
