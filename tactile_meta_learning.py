@@ -137,8 +137,10 @@ def get_config():
     config.log_tensors_interval = 100
     config.save_checkpoint_interval = 100
     config.train_checkpoint_all_hosts = False
-    config.checkpoint_dir = f'./data/meta_learned/{exp.dataset.name}'
-    config.eval_specific_checkpoint_dir = f'./data/meta_learned/{exp.dataset.name}'
+    config.checkpoint_dir = f'./tmp/training/{exp.dataset.name}'
+    config.eval_specific_checkpoint_dir = f'./tmp/training/{exp.dataset.name}'
+    config.is_save_checkpoint = True
+    config.pretrained_ckpt_path = f'./data/meta_learned/{exp.dataset.name}/checkpoint_{exp.model.width}w_{exp.model.depth}d_{exp.model.latent_dim}ld.npz'
     
     return config
 
@@ -285,6 +287,13 @@ class Experiment(experiment.AbstractExperiment):
             with open(path_npy, 'wb') as f:
                 dill.dump(ckpt_data, f)
             logging.info('Saved final checkpoint and config to %s', path_npy)
+
+            if FLAGS.config.is_save_checkpoint:
+                # Save the checkpoint
+                path = os.path.join(FLAGS.config.pretrained_ckpt_path)
+                with open(path, 'wb') as f:
+                    dill.dump(ckpt_data, f)
+                logging.info('Saved pretrained checkpoint to %s', path)
         
         return scalars
         

@@ -74,7 +74,7 @@ class BubblePtDataset(tfds.core.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager: tfds.download.DownloadManager):
         """Returns SplitGenerators."""
         # Path to your .pt files of the entire bubble dataset
-        data_dir = pathlib.Path("/data/functa/bubble/1")
+        data_dir = pathlib.Path("/data/functa/bubble")
         return {
             'train': self._generate_examples(data_dir),
         }

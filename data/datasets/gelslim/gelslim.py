@@ -74,7 +74,7 @@ class GelslimPtDataset(tfds.core.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager: tfds.download.DownloadManager):
         """Returns SplitGenerators."""
         # Path to your .pt files
-        data_dir = pathlib.Path("/data/functa/gelslim/1")
+        data_dir = pathlib.Path("/data/functa/gelslim")
         return {
             'train': self._generate_examples(data_dir),
         }

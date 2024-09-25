@@ -40,11 +40,12 @@ pip install -U "jax[cuda12]"
 ```
 
 ## Data
+### Outline
 The structure of the data folder should be as follows:
 ```
 .
 ├── assets
-├── baselines
+├── baselines                     # implementations of baselines: VAE, T3 and ResNet-18
 ├── data
 │   ├── datasets                  # folders to setup bubble/gelslim
 │   │   ├── bubble
@@ -71,7 +72,63 @@ The structure of the data folder should be as follows:
 └── tactile_meta_learning.py
 ```
 
+### Prepare datasets
+1. Download Bubble and Gelslim datasets from [here](https://drive.google.com/drive/folders/15vWo5AWw9xVKE1wHbLhzm40ClPyRBYk5?usp=sharing ).
+2. Preprocess the datasets. Assume that both datasets are saved under paths:
+```
+# Bubble Dataset
+/data/functa/bubble/          # All bubble data points are under this folder with file name from "data_0.pt" to "data_16127.pt"
+# Gelslim Dataset
+/data/functa/gelslim/         # All gelslim data points are under this folder with file name from "data_0.pt" to "data_16127.pt"
+```
+
+### Setup Bubble dataset as Tensorflow dataset (TFDS)
+The bubble tactile sensor data is transformed into a TensorFlow Dataset (tfds) format, enabling seamless integration with JAX/Haiku models while providing access to tfds's diverse data processing capabilities. The input is derived by normalizing the difference between post-contact and pre-contact images from the left-hand-side sensor, which is paired with the corresponding in-hand object pose vector for downstream tasks.
+
+Run:
+```
+cd data/datasets/bubble
+tfds build --register_checksums
+```
+
+### Setup Gelslim dataset as Tensorflow dataset (TFDS)
+The gelslim tactile sensor data is transformed into a TensorFlow Dataset (tfds) format, enabling seamless integration with JAX/Haiku models while providing access to tfds's diverse data processing capabilities. The input is derived by normalizing and converting the difference between post-contact and pre-contact images from the left-hand-side sensor into grayscale channel, which is paired with the corresponding in-hand object pose vector for downstream tasks.
+
+Run:
+```
+cd data/datasets/gelslim
+tfds build --register_checksums
+```
+
+### Use different datasets for meta-learning the trunk network
+After setting up Bubble and Gelslim datasets, change the `exp.dataset.name` in `tactile_meta_learning.py`'s `get_config()` to `bubble_pt_dataset`, `gelslim_pt_dataset`, or `combined_pt_dataset` for the dataset you want.
+
+Combined dataset is the combination of bubble and gelslim datasets, and is handled in `data_utils.py`.
+
 ## Experiments
+### Meta-learning the trunk network
+Configure the parameters in `tactile_meta_learning.py`'s `get_config()` and run:
+```
+python -m tactile_meta_learning --config=tactile_meta_learning.py
+```
+After training, the checkpoint of the weights of the meta-learned trunk network is saved to both `./tmp/training/{exp.dataset.name}/checkpoint.npz` (will be overwritten) and `./data/meta_learned/{exp.dataset.name}/checkpoint_{exp.model.width}w_{exp.model.depth}d_{exp.model.latent_dim}ld.npz` for better clarification.
+
+### Creating the tactile functasets
+Configure the paths for pretrained trunk network weights and created functasets in `tactile_functaset_writer.py`, and run:
+```
+python -m tactile_functaset_writer --type=DATA_TYPE         # DATA_TYPE should be "bubble", "combined" or "gelslim"
+```
+After running, the functaset is saved as a `.npz` file to the directory you configured.
+
+### Downstream task - In-hand Pose Estimation
+Coming soon!
+
+### Baselines
+#### ResNet-18
+
+#### VAE
+
+#### T3
 
 ## Demos
 *Images compared are of the same size, the displayed differences do not represent the actual size.*

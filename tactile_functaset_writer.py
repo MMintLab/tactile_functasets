@@ -105,7 +105,7 @@ def main(_):
   # Load params of LatentModulatedSiren model
   data_type = FLAGS.type
   # Relative path to trunk network checkpoint (Or change the path to your own checkpoint)
-  path = f'./data/meta_learned/{data_type}_pt_dataset/checkpoint.npz'
+  path = f'./tmp/training/{data_type}_pt_dataset/checkpoint.npz'
   ## Check that checkpoint file exists
   assert os.path.exists(path), 'Pretrained weights file does not exist.'
   with open(path, 'rb') as f:
