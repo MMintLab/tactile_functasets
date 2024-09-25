@@ -137,8 +137,8 @@ def get_config():
     config.log_tensors_interval = 100
     config.save_checkpoint_interval = 100
     config.train_checkpoint_all_hosts = False
-    config.checkpoint_dir = f'./tmp/training/{exp.dataset.name}'
-    config.eval_specific_checkpoint_dir = f'./tmp/training/{exp.dataset.name}'
+    config.checkpoint_dir = f'./data/meta_learned/{exp.dataset.name}'
+    config.eval_specific_checkpoint_dir = f'./data/meta_learned/{exp.dataset.name}'
     
     return config
 

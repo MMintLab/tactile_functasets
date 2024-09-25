@@ -104,8 +104,8 @@ def create_modulation_dataset(model, params, ds, num_steps, coords, lr,
 def main(_):
   # Load params of LatentModulatedSiren model
   data_type = FLAGS.type
-  # Path to trunk network checkpoint (Or change the path to your own checkpoint)
-  path = f'./tmp/training/{data_type}_pt_dataset/checkpoint.npz'
+  # Relative path to trunk network checkpoint (Or change the path to your own checkpoint)
+  path = f'./data/meta_learned/{data_type}_pt_dataset/checkpoint.npz'
   ## Check that checkpoint file exists
   assert os.path.exists(path), 'Pretrained weights file does not exist.'
   with open(path, 'rb') as f:
@@ -130,7 +130,7 @@ def main(_):
   model = hk.without_apply_rng(hk.transform(model_net))
 
   # Check that user specified directory exists if specified
-  data_dir = os.getcwd() + f'/{data_type}/'
+  data_dir = os.getcwd() + f'/data/functasets/{data_type}/'
   assert os.path.isdir(
       data_dir
   ), f'User specified directory {data_dir} does not exist.'

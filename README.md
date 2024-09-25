@@ -40,6 +40,36 @@ pip install -U "jax[cuda12]"
 ```
 
 ## Data
+The structure of the data folder should be as follows:
+```
+.
+├── assets
+├── baselines
+├── data
+│   ├── datasets                  # folders to setup bubble/gelslim
+│   │   ├── bubble
+│   │   │   ├── bubble.py
+│   │   │   └── checksum.tsv
+│   │   └── gelslim
+│   │       ├── bubble.py
+│   │       └── checksum.tsv
+│   ├── functasets                # tactile functasets
+│   │   ├── bubble
+│   │   ├── combined
+│   │   └── gelslim
+│   └── meta_learned              # meta learned trunk model checkpoints
+│       ├── bubble_pt_dataset
+│       ├── combined_pt_dataset
+│       └── gelslim_pt_dataset
+├── data_utils.py
+├── function_reps.py
+├── helpers.py
+├── pytree_conversions.py
+├── README.md
+├── requirements.txt
+├── tactile_functaset_writer.py
+└── tactile_meta_learning.py
+```
 
 ## Experiments
 
